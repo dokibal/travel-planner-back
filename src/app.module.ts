@@ -5,6 +5,14 @@ import { configValidationSchema } from './config.schema';
 import { DeepSeekModule } from './modules/deepseek/deepseek.module';
 
 @Module({
-  imports: [AiModule, DeepSeekModule, ConfigModule.forRoot({ isGlobal: true, envFilePath: ['.env'], validationSchema: configValidationSchema })],
+  imports: [
+    AiModule,
+    DeepSeekModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: ['.env'],
+      validationSchema: configValidationSchema,
+    }),
+  ],
 })
-export class AppModule { }
+export class AppModule {}

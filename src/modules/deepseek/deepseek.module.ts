@@ -3,8 +3,8 @@ import { DeepSeekService } from './deepseek.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-    providers: [DeepSeekService],
-    imports: [ConfigModule],
-    exports: [DeepSeekService]
+  providers: [DeepSeekService],
+  imports: [ConfigModule],
+  exports: [DeepSeekService],
 })
-export class DeepSeekModule { }
+export class DeepSeekModule {}
