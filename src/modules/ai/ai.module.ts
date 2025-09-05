@@ -1,10 +1,10 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { AiController } from './ai.controller';
 import { AiService } from './ai.service';
 import { DeepSeekModule } from '../deepseek/deepseek.module';
 
 @Module({
-  imports: [DeepSeekModule, Logger],
+  imports: [DeepSeekModule],
   controllers: [AiController],
   providers: [AiService],
 })
