@@ -1,5 +1,7 @@
-import { Controller, Get, Logger } from '@nestjs/common';
+import { Controller, Post, Logger, Body } from '@nestjs/common';
 import { AiService } from './ai.service';
+import { ItineraryInputDTO } from './itinerary-input.dto';
+import { ItineraryOutputDTO } from './itinerary-output.dto';
 
 @Controller('api')
 export class AiController {
@@ -7,9 +9,11 @@ export class AiController {
 
   constructor(private aiService: AiService) {}
 
-  @Get('/ai/itinerary')
-  async getItinerary(): Promise<string | null> {
-    this.logger.log('Received request to get itinerary');
-    return this.aiService.getItinerary();
+  @Post('/ai/itinerary')
+  async createItinerary(
+    @Body() itineraryInputDTO: ItineraryInputDTO,
+  ): Promise<ItineraryOutputDTO | null> {
+    this.logger.log('Received request to create itinerary');
+    return this.aiService.createItinerary(itineraryInputDTO);
   }
 }
