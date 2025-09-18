@@ -13,6 +13,7 @@ model City {
   latitude Float @db.Double
   longitude Float @db.Double
   countryCode String @map("country_code") @db.String
+  countryName String @map("country_name") @db.String
   population Int @db.Int
   elevation Int @db.Int
   timeZone String @map("time_zone") @db.String

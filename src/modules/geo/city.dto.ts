@@ -18,6 +18,10 @@ export class CityDTO {
   @Expose()
   countryCode: string;
 
+  @IsString()
+  @Expose()
+  countryName: string;
+
   @IsNumber()
   @Expose()
   population: number;

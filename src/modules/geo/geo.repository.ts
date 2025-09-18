@@ -13,7 +13,10 @@ export class GeoRepository {
     return this.prismaService.city.findMany({
       where: {
         ...(searchTerm && {
-          name: { contains: searchTerm, mode: 'insensitive' },
+          OR: [
+            { name: { contains: searchTerm, mode: 'insensitive' } },
+            { countryName: { contains: searchTerm, mode: 'insensitive' } },
+          ],
         }),
       },
       orderBy: { population: 'desc' },

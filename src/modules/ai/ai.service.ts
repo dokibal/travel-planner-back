@@ -2,7 +2,6 @@ import { Injectable, Logger } from '@nestjs/common';
 import { DeepSeekService } from '../deepseek/deepseek.service';
 import { ItineraryInputDTO } from './itinerary-input.dto';
 import { ItineraryOutputDTO } from './itinerary-output.dto';
-import { givenItineraryOutputDTO } from './mock.data';
 
 @Injectable()
 export class AiService {
