@@ -1,0 +1,14 @@
+name: 'Load & cache dependencies'
+description: 'Get the dependencies via npm & cache them.'
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        key: node-deps-${{hashFiles('**/pnpm-lock.yaml')}}
+    - name: Install dependencies
+      run: |
+        npm install -g pnpm
+        pnpm install --ignore-scripts
