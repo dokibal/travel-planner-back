@@ -11,8 +11,11 @@ export class GeoService {
   constructor(private geoRepository: GeoRepository) {}
 
   async getCities(searchTerm?: string): Promise<CityDTO[]> {
-    const cityEntities: City[] = await this.geoRepository.getCities(searchTerm);
+    const cityEntities: City[] =
+      await this.geoRepository.findCities(searchTerm);
 
-    return plainToInstance(CityDTO, cityEntities);
+    return plainToInstance(CityDTO, cityEntities, {
+      excludeExtraneousValues: true,
+    });
   }
 }

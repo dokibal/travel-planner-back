@@ -8,7 +8,7 @@ export class GeoRepository {
 
   constructor(private prismaService: PrismaService) {}
 
-  async getCities(searchTerm?: string): Promise<City[]> {
+  async findCities(searchTerm?: string): Promise<City[]> {
     this.logger.log('Request to get city entities');
     return this.prismaService.city.findMany({
       where: {

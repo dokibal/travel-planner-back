@@ -1,0 +1,21 @@
+name: Build, test and lint
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-deps-${{hashFiles('**/pnpm-lock.yaml')}}
+      - name: Install dependencies
+        run: pnpm ci --ignore-scripts
+        shell: bash
+      - name: Generate Prisma
+        run: pnpm run prisma:generate
+        shell: bash
+      - name: Build project
+        run: pnpm run build
