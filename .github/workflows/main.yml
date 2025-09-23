@@ -12,7 +12,9 @@ jobs:
           path: node_modules
           key: node-deps-${{hashFiles('**/pnpm-lock.yaml')}}
       - name: Install dependencies
-        run: pnpm ci --ignore-scripts
+        run: |
+          npm install -g pnpm
+          pnpm ci --ignore-scripts
         shell: bash
       - name: Generate Prisma
         run: pnpm run prisma:generate
