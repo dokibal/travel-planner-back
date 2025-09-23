@@ -9,7 +9,7 @@ export class GeoController {
 
   constructor(private geoService: GeoService) {}
 
-  @Get('/cities')
+  @Get('/geo/cities')
   async getCities(@Query() searchDTO: SearchDTO): Promise<CityDTO[]> {
     this.logger.log(
       `Received request to get cities by search: ${JSON.stringify(searchDTO)}`,
