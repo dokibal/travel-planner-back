@@ -76,14 +76,14 @@ export function givenCityDTO1(): CityDTO {
 
 export function givenCityDTO2(): CityDTO {
   return {
-    name: 'Lahore',
-    latitude: 31.558,
-    longitude: 74.35071,
-    countryCode: 'PK',
-    countryName: 'Pakistan',
-    population: 13004135,
-    elevation: 216,
-    timeZone: 'Asia/Karachi',
+    name: 'San Francisco',
+    latitude: 37.77493,
+    longitude: -122.41942,
+    countryCode: 'US',
+    countryName: 'United States',
+    population: 827526,
+    elevation: 28,
+    timeZone: 'America/Los_Angeles',
   };
 }
 
